@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int Lecture_3_3(int argc, char** argv)
+int Lecture_3_4(int argc, char** argv)
 {
 	char string1[20];
 	char string2[] = "string literal";
@@ -25,6 +25,6 @@ int Lecture_3_3(int argc, char** argv)
 
 int main(int argc, char** argv)
 {
-	return Lecture_3_3(argc, argv);
+	return Lecture_3_4(argc, argv);
 }
 
