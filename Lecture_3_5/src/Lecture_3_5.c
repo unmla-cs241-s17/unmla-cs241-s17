@@ -1,25 +1,13 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-int my_getline(char line[], int maxline);
-void copy(char[], char[]);
-
-int Lecture_3_5(int argc, char** argv)
+void copy(char to[], char from[])
 {
-	int len;
-	int max;
-	char line[MAXLINE];
-	char longest[MAXLINE];
+	int i;
 
-	max = 0;
-	while ((len = my_getline(line, MAXLINE)) > 0)
-		if (len > max) {
-			max = len;
-			copy(longest, line);
-		}
-	if (max > 0)
-		printf("%s", longest);
-	return 0;
+	i = 0;
+	while((to[i] = from[i]) != '\0')
+		++i;
 }
 
 int my_getline(char s[], int lim)
@@ -36,13 +24,28 @@ int my_getline(char s[], int lim)
 	return i;
 }
 
-void copy(char to[], char from[])
+int Lecture_3_5(int argc, char** argv)
 {
-	int i;
+	int len;
+	int max;
+	char line[MAXLINE];
+	char longest[MAXLINE];
 
-	i = 0;
-	while ((to[i] = from[i]) != '\0')
-		++i;
+	max = 0;
+	while (0 < (len = my_getline(line, MAXLINE)))
+	{
+		if (len > max) {
+			max = len;
+			copy(longest, line);
+		}
+	}
+
+	if (0 < max)
+	{
+		printf("%s", longest);
+	}
+
+	return 0;
 }
 
 int main(int argc, char** argv)
