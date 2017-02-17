@@ -36,6 +36,15 @@ int linsearch(int x, int v[], int n)
 	return -1;
 }
 
+void reseed()
+{
+	struct timeval seed_t;
+
+	gettimeofday(&seed_t, NULL);
+
+	srand(seed_t.tv_usec);
+}
+
 void shellsort(int v[], int n)
 {
 	int gap, i, j, temp;
@@ -57,6 +66,8 @@ int Lecture_5_5(int argc, char** argv)
 	struct timeval start_t;
 	struct timeval end_t;
 	double total_t;
+
+	reseed();
 
 	for (idx=0; idx<MAX_ARRAY_LEN; ++idx)
 	{
